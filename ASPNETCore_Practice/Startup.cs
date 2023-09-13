@@ -26,8 +26,8 @@ namespace ASPNETCore_Practice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+            services.AddScoped<ILoggerService, LoggerService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASPNETCore_Practice", Version = "v1" });

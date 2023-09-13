@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoggerService
 {
-    internal interface ILoggerManager
+    public interface ILoggerManager
     {
         void LogError(string message);
         void LogWarning(string message);
