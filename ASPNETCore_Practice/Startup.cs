@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LoggerService;
+using NLog;
+using System.IO;
 
 namespace ASPNETCore_Practice
 {
@@ -27,7 +30,8 @@ namespace ASPNETCore_Practice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<ILoggerService, LoggerService>();
+            //DI
+            services.AddScoped<ILoggerManager, LoggerManager>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASPNETCore_Practice", Version = "v1" });
@@ -37,6 +41,8 @@ namespace ASPNETCore_Practice
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
