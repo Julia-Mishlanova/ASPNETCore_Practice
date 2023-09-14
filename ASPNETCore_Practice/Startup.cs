@@ -13,7 +13,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using LoggerService;
 using NLog;
+using AutoMapper;
 using System.IO;
+using Services.IServices;
+using Services;
 
 namespace ASPNETCore_Practice
 {
@@ -29,9 +32,12 @@ namespace ASPNETCore_Practice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             //DI
             services.AddScoped<ILoggerManager, LoggerManager>();
+            services.AddScoped<IProductService, FakeProductService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASPNETCore_Practice", Version = "v1" });
