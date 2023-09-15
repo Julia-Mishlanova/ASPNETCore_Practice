@@ -5,11 +5,13 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore_Practice", "ASPNETCore_Practice\ASPNETCore_Practice.csproj", "{BE634B4C-E3A4-45AE-96BD-022C78523795}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerService\LoggerService.csproj", "{2BEE6B52-4B16-4315-9A23-F6DEB5A03260}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore_Practice.LoggerService", "LoggerService\ASPNETCore_Practice.LoggerService.csproj", "{2BEE6B52-4B16-4315-9A23-F6DEB5A03260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{1511D758-8762-4D95-AA45-8A4A29944081}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore_Practice.Services", "Services\ASPNETCore_Practice.Services.csproj", "{1511D758-8762-4D95-AA45-8A4A29944081}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{9C811F1D-6CB2-4876-91F5-6875BE2605AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore_Practice.Models", "Models\ASPNETCore_Practice.Models.csproj", "{9C811F1D-6CB2-4876-91F5-6875BE2605AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETCore_Practice.Repositories", "ASPNETCore_Practice.Repositories\ASPNETCore_Practice.Repositories.csproj", "{123E572E-992E-4E7A-B728-370D71277B4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9C811F1D-6CB2-4876-91F5-6875BE2605AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C811F1D-6CB2-4876-91F5-6875BE2605AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C811F1D-6CB2-4876-91F5-6875BE2605AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{123E572E-992E-4E7A-B728-370D71277B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123E572E-992E-4E7A-B728-370D71277B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123E572E-992E-4E7A-B728-370D71277B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123E572E-992E-4E7A-B728-370D71277B4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

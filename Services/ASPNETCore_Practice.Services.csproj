@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Models\ASPNETCore_Practice.Models.csproj" />
   </ItemGroup>
 
 </Project>

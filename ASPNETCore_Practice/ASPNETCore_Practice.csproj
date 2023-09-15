@@ -10,8 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
-    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\ASPNETCore_Practice.Repositories\ASPNETCore_Practice.Repositories.csproj" />
+    <ProjectReference Include="..\LoggerService\ASPNETCore_Practice.LoggerService.csproj" />
+    <ProjectReference Include="..\Services\ASPNETCore_Practice.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
