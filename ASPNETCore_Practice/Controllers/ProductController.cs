@@ -1,9 +1,9 @@
 ﻿using Models;
-using Models.ModelsDTO;
 using AutoMapper;
 using LoggerService;
 using Microsoft.AspNetCore.Mvc;
 using Services.IServices;
+using ASPNETCore_Practice.Models.DTO;
 
 namespace ASPNETCore_Practice.Controllers
 {

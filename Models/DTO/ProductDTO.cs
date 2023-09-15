@@ -1,4 +1,4 @@
-﻿namespace Models.ModelsDTO
+﻿namespace ASPNETCore_Practice.Models.DTO
 {
     public class ProductDTO
     {
