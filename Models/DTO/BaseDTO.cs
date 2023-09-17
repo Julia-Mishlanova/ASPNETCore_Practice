@@ -8,6 +8,6 @@ namespace ASPNETCore_Practice.Models.DTO
 {
     public class BaseDTO
     {
-        public string Id { get; set; } 
+        public long Id { get; set; } 
     }
 }

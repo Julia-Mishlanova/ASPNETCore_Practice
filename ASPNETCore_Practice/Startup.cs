@@ -15,8 +15,9 @@ using LoggerService;
 using NLog;
 using AutoMapper;
 using System.IO;
-using Services.IServices;
-using Services;
+using ASPNETCore_Practice.Services.IServices;
+using ASPNETCore_Practice.Services;
+using ASPNETCore_Practice.Models.DTO;
 
 namespace ASPNETCore_Practice
 {
@@ -35,8 +36,13 @@ namespace ASPNETCore_Practice
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             //DI
+            services.AddScoped<IAirportService, FakeAirportService>();
+            services.AddScoped<IBookingService, FakeBookingService>();
+            services.AddScoped<IClientService, FakeClientService>();
+            services.AddScoped<IÑountryService, FakeCountryService>();
+            services.AddScoped<IFlightService, FakeFlightService>();
+
             services.AddScoped<ILoggerManager, LoggerManager>();
-            services.AddScoped<IProductService, FakeProductService>();
 
             services.AddSwaggerGen(c =>
             {

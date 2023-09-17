@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore_Practice.Domain
 {
-    public class FlightSeatPrice : BaseEntity
+    public class FlightSeatPricePrice : BaseEntity
     {
         [AllowNull]
         public int FlightId { get; set; }
