@@ -1,2 +1,2 @@
 # ERD
-![image](https://github.com/Julia-Mishlanova/ASPNETCore_Practice/assets/112238047/7e250ad4-0cd8-46ba-8d29-7bbf0e52d663)
+![image](https://github.com/Julia-Mishlanova/ASPNETCore_Practice/assets/112238047/5bed4a04-18b7-4f21-9b0f-68874fa08318)
