@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ASPNETCore_Practice.Repositories\ASPNETCore_Practice.Repositories.csproj" />
+    <ProjectReference Include="..\ASPNETCore_Practice.Repositories\ASPNETCore_Practice.DataAccess.csproj" />
     <ProjectReference Include="..\LoggerService\ASPNETCore_Practice.LoggerService.csproj" />
     <ProjectReference Include="..\Services\ASPNETCore_Practice.Services.csproj" />
   </ItemGroup>

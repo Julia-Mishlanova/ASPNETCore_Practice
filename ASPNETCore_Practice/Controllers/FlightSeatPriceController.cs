@@ -1,5 +1,4 @@
-﻿using ASPNETCore_Practice.Domain;
-using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;

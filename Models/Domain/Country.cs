@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ASPNETCore_Practice.Domain
+namespace ASPNETCore_Practice.Models.Domain
 {
-    public class FlightStatus : BaseEntity
+    public class Country : BaseEntity
     {
         public string Name { get; set; }
     }

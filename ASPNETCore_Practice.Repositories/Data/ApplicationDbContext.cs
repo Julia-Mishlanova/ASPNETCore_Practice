@@ -1,13 +1,14 @@
-﻿using ASPNETCore_Practice.Domain;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ASPNETCore_Practice.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ASPNETCore_Practice.Models.Domain;
+using ASPNETCore_Practice.Management;
 
-namespace ASPNETCore_Practice.Management
+namespace ASPNETCore_Practice.Repositories
 {
     public class ApplicationDbContext : DbContext
     {

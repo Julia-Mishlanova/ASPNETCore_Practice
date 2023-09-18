@@ -18,6 +18,8 @@ using System.IO;
 using ASPNETCore_Practice.Services.IServices;
 using ASPNETCore_Practice.Services;
 using ASPNETCore_Practice.Models.DTO;
+using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.DataAccess.Repository;
 
 namespace ASPNETCore_Practice
 {
@@ -41,7 +43,11 @@ namespace ASPNETCore_Practice
             services.AddScoped<IClientService, FakeClientService>();
             services.AddScoped<IÑountryService, FakeCountryService>();
             services.AddScoped<IFlightService, FakeFlightService>();
+            services.AddScoped<IFlightStatusService, FakeFlightStatusService>();
+            services.AddScoped<IFlightSeatPriceService, FakeFlightSeatPriceService>();
 
+            services.AddScoped<IAirportRepository, AirportRepository>();
+             
             services.AddScoped<ILoggerManager, LoggerManager>();
 
             services.AddSwaggerGen(c =>

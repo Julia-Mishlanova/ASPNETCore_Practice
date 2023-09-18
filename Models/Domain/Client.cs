@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ASPNETCore_Practice.Domain
+namespace ASPNETCore_Practice.Models.Domain
 {
     public class Client : BaseEntity
     {
-        public string FullName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Phone { get; set; }
         public string Passport { get; set; }
 

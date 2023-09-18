@@ -6,16 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ASPNETCore_Practice.Domain
+namespace ASPNETCore_Practice.Models.Domain
 {
-    public class Booking : BaseEntity
+    public class FlightSeatPricePrice : BaseEntity
     {
-        [AllowNull]
-        public int ClientId { get; set; }
-
-        [ForeignKey("ClientId")]
-        public Client Client { get; set; }
-
         [AllowNull]
         public int FlightId { get; set; }
 

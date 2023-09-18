@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore_Practice.Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore_Practice.Models", "Models\ASPNETCore_Practice.Models.csproj", "{9C811F1D-6CB2-4876-91F5-6875BE2605AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETCore_Practice.Repositories", "ASPNETCore_Practice.Repositories\ASPNETCore_Practice.Repositories.csproj", "{123E572E-992E-4E7A-B728-370D71277B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNETCore_Practice.DataAccess", "ASPNETCore_Practice.Repositories\ASPNETCore_Practice.DataAccess.csproj", "{123E572E-992E-4E7A-B728-370D71277B4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

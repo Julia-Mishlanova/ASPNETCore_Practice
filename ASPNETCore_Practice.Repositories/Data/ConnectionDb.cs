@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
+
 namespace ASPNETCore_Practice.Management
 {
     public class ConnectionDB
