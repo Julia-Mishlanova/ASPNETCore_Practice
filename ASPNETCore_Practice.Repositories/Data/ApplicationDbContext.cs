@@ -11,13 +11,15 @@ namespace ASPNETCore_Practice.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<FlightStatus> FlightStatuses { get; set; }
-        public DbSet<Flight> Flights { get; set; }
-        public DbSet<FlightSeatPricePrice> FlightSeatPrices { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
-        public DbSet<Airport> Airports { get; set; }
+        public DbSet<FlightStatus> FlightStatus { get; set; }
+        public DbSet<Country> Country { get; set; }
+        public DbSet<Client> Client { get; set; }
+        public DbSet<Airport> Airport { get; set; }
+        public DbSet<Flight> Flight { get; set; }
+        public DbSet<Direction> Direction { get; set; }
+        public DbSet<FlightSeatPrice> FlightSeatPrice { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
+        public DbSet<Booking> Booking { get; set; }
 
         public ApplicationDbContext()
         {

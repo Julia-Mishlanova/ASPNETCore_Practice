@@ -15,8 +15,10 @@ namespace ASPNETCore_Practice
             .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
             CreateMap<Country, CountryDTO>();
             CreateMap<Flight, FlightDTO>();
-            CreateMap<FlightSeatPricePrice, FlightSeatPriceDTO>();
+            CreateMap<FlightSeatPrice, FlightSeatPriceDTO>();
             CreateMap<FlightStatus, FlightStatusDTO>();
+            CreateMap<Schedule, ScheduleDTO>();
+            CreateMap<Direction, DirectionDTO>();
         }
     }
 }

@@ -1,0 +1,19 @@
+﻿using ASPNETCore_Practice.Models.DTO;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ASPNETCore_Practice.Models.Domain
+{
+    public class ScheduleDTO : BaseDTO
+    {
+        public int DirectionId { get; set; }
+        public DateTime DepartureTimeGMT { get; set; }
+        public DateTime ArrivalTimeGMT { get; set; }
+    }
+}

@@ -16,10 +16,12 @@ namespace ASPNETCore_Practice.Models.Domain
         [ForeignKey("ClientId")]
         public Client Client { get; set; }
 
-        [AllowNull]
-        public int FlightId { get; set; }
+        
 
-        [ForeignKey("FlightId")]
-        public Flight Flight { get; set; }
+        [AllowNull]
+        public int FlightSeatPriceId { get; set; }
+
+        [ForeignKey("FlightSeatPriceId")]
+        public FlightSeatPrice FlightSeatPrice { get; set; }
     }
 }

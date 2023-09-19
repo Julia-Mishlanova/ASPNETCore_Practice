@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore_Practice.Models.Domain
 {
-    public class FlightSeatPricePrice : BaseEntity
+    public class FlightSeatPrice : BaseEntity
     {
         [AllowNull]
         public int FlightId { get; set; }
 
         [ForeignKey("FlightId")]
         public Flight Flight { get; set; }
+        public int Price { get; set; }
     }
 }

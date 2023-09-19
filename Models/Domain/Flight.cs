@@ -11,9 +11,15 @@ namespace ASPNETCore_Practice.Models.Domain
     public class Flight : BaseEntity
     {
         [AllowNull]
+        public int ScheduleId { get; set; }
+
+        [ForeignKey("ScheduleId")]
+        public virtual Schedule Schedule { get; set; }
+
+        [AllowNull]
         public int FlightStatusId { get; set; }
 
         [ForeignKey("FlightStatusId")]
-        public FlightStatus FlightStatus { get; set; }
+        public virtual FlightStatus FlightStatus { get; set; }
     }
 }
