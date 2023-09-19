@@ -12,6 +12,6 @@ namespace ASPNETCore_Practice.Models.Domain
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public int Id { get; set; }
     }
 }

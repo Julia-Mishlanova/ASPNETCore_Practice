@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 
 
-namespace ASPNETCore_Practice.Management
+namespace ASPNETCore_Practice.DataAccess.Data
 {
     public class ConnectionDB
     {
