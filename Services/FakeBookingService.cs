@@ -17,9 +17,9 @@ namespace ASPNETCore_Practice.Services
         {
             bookings = new List<BookingDTO>
             {
-                new BookingDTO { Id = nextId++, ClientId = 1, FlightId = 101 },
-                new BookingDTO { Id = nextId++, ClientId = 2, FlightId = 102 },
-                new BookingDTO { Id = nextId++, ClientId = 3, FlightId = 103 }
+                new BookingDTO { Id = nextId++, ClientId = 1, FlightSeatPriceId = 101 },
+                new BookingDTO { Id = nextId++, ClientId = 2, FlightSeatPriceId = 102 },
+                new BookingDTO { Id = nextId++, ClientId = 3, FlightSeatPriceId = 103 }
             };
         }
 
@@ -45,7 +45,7 @@ namespace ASPNETCore_Practice.Services
             if (existingBooking != null)
             {
                 existingBooking.ClientId = updatedBooking.ClientId;
-                existingBooking.FlightId = updatedBooking.FlightId;
+                existingBooking.FlightSeatPriceId = updatedBooking.FlightSeatPriceId;
             }
         }
 

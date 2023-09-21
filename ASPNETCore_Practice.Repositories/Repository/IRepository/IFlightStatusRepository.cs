@@ -1,5 +1,4 @@
-﻿using ASPNETCore_Practice.Models.Domain;
-using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ASPNETCore_Practice.DataAccess.Repository.IRepository
 {
-    public interface IAirportRepository : IRepository<AirportDTO>
+    public interface IFlightStatusRepository : IRepository<FlightStatusDTO>
     {
-        void Update(AirportDTO obj);
+        void Update(FlightStatusDTO obj);
     }
 }

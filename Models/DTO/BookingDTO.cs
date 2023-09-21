@@ -11,7 +11,7 @@ namespace ASPNETCore_Practice.Models.DTO
     public class BookingDTO : BaseDTO
     {
         public int ClientId { get; set; }
-        public int FlightId { get; set; }
+        public int FlightSeatPriceId { get; set; }
 
     }
 }
