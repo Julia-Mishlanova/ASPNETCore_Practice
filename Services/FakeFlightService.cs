@@ -1,4 +1,6 @@
-﻿using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.Models.Domain;
+using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeFlightService : IFlightService
     {
+        private IFlightRepository _flightRepository;
         private List<FlightDTO> flights;
         private int nextId = 1;
 
@@ -26,35 +29,30 @@ namespace ASPNETCore_Practice.Services
 
         public IEnumerable<FlightDTO> GetAllFlights()
         {
-            return flights;
+            return _flightRepository.GetAll();
         }
 
         public FlightDTO GetFlightById(int id)
         {
-            return flights.FirstOrDefault(f => f.Id == id);
+            return _flightRepository.Find(id);
         }
 
         public void AddFlight(FlightDTO flight)
         {
-            flight.Id = nextId++;
-            flights.Add(flight);
+            _flightRepository.Add(flight);
         }
 
         public void UpdateFlight(FlightDTO updatedFlight)
         {
-            var existingFlight = flights.FirstOrDefault(f => f.Id == updatedFlight.Id);
-            if (existingFlight != null)
-            {
-                existingFlight.FlightStatusId = updatedFlight.FlightStatusId;
-            }
+            _flightRepository.Update(updatedFlight);
         }
 
         public void DeleteFlight(int id)
         {
-            var flightToDelete = flights.FirstOrDefault(f => f.Id == id);
+            var flightToDelete = _flightRepository.Find(id);
             if (flightToDelete != null)
             {
-                flights.Remove(flightToDelete);
+                _flightRepository.Remove(flightToDelete);
             }
         }
     }

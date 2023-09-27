@@ -1,4 +1,6 @@
-﻿using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.Models.Domain;
+using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeDirectionService : IDirectionService
     {
+        private IDirectionRepository _directionRepository;
         private List<DirectionDTO> _directions;
         private int nextId = 1;
 
@@ -25,36 +28,30 @@ namespace ASPNETCore_Practice.Services
 
         public IEnumerable<DirectionDTO> GetAllDirections()
         {
-            return _directions;
+            return _directionRepository.GetAll();
         }
 
         public DirectionDTO GetDirectionById(int id)
         {
-            return _directions.FirstOrDefault(c => c.Id == id);
+            return _directionRepository.Find(id);
         }
 
         public void AddDirection(DirectionDTO direction)
         {
-            direction.Id = nextId++;
-            _directions.Add(direction);
+            _directionRepository.Add(direction);
         }
 
         public void UpdateDirection(DirectionDTO updatedDirection)
         {
-            var existingDirection = _directions.FirstOrDefault(c => c.Id == updatedDirection.Id);
-            if (existingDirection != null)
-            {
-                existingDirection.OriginIataCode = updatedDirection.OriginIataCode;
-                existingDirection.DestinationIataCode = updatedDirection.DestinationIataCode;
-            }
+            _directionRepository.Update(updatedDirection);
         }
 
         public void DeleteDirection(int id)
         {
-            var directionToDelete = _directions.FirstOrDefault(c => c.Id == id);
+            var directionToDelete = _directionRepository.Find(id);
             if (directionToDelete != null)
             {
-                _directions.Remove(directionToDelete);
+                _directionRepository.Remove(directionToDelete);
             }
         }
     }

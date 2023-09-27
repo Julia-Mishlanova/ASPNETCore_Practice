@@ -1,4 +1,5 @@
-﻿using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -10,47 +11,34 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeAirportService : IAirportService
     {
-        private List<AirportDTO> airports;
-        private int nextId = 1;
-
-        public FakeAirportService()
-        {
-            airports = new List<AirportDTO>();
-        }
+        private IAirportRepository _airportRepository;
 
         public IEnumerable<AirportDTO> GetAllAirports()
         {
-            return airports;
+            return _airportRepository.GetAll();
         }
 
         public AirportDTO GetAirportById(int id)
         {
-            return airports.FirstOrDefault(a => a.Id == id);
+            return _airportRepository.Find(id);
         }
 
         public void AddAirport(AirportDTO airport)
         {
-            airport.Id = nextId++;
-            airports.Add(airport);
+            _airportRepository.Add(airport);
         }
 
         public void UpdateAirport(AirportDTO updatedAirport)
         {
-            var existingAirport = airports.FirstOrDefault(a => a.Id == updatedAirport.Id);
-            if (existingAirport != null)
-            {
-                existingAirport.Name = updatedAirport.Name;
-                existingAirport.City = updatedAirport.City;
-                existingAirport.CountryId = updatedAirport.CountryId;
-            }
+            _airportRepository.Update(updatedAirport);
         }
 
         public void DeleteAirport(int id)
         {
-            var airportToDelete = airports.FirstOrDefault(a => a.Id == id);
+            var airportToDelete = _airportRepository.Find(id);
             if (airportToDelete != null)
             {
-                airports.Remove(airportToDelete);
+                _airportRepository.Remove(airportToDelete);
             }
         }
     }

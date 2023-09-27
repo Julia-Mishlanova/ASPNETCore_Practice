@@ -1,4 +1,5 @@
-﻿using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeClientService : IClientService
     {
+        private IClientRepository _clientRepository;
         private List<ClientDTO> clients;
         private int nextId = 1;
 
@@ -26,29 +28,22 @@ namespace ASPNETCore_Practice.Services
 
         public IEnumerable<ClientDTO> GetAllClients()
         {
-            return clients;
+            return _clientRepository.GetAll();
         }
 
         public ClientDTO GetClientById(int id)
         {
-            return clients.FirstOrDefault(c => c.Id == id);
+            return _clientRepository.Find(id);
         }
 
         public void AddClient(ClientDTO client)
         {
-            client.Id = nextId++;
-            clients.Add(client);
+            _clientRepository.Add(client);
         }
 
         public void UpdateClient(ClientDTO updatedClient)
         {
-            var existingClient = clients.FirstOrDefault(c => c.Id == updatedClient.Id);
-            if (existingClient != null)
-            {
-                existingClient.FullName = updatedClient.FullName;
-                existingClient.Phone = updatedClient.Phone;
-                existingClient.CountryId = updatedClient.CountryId;
-            }
+            _clientRepository.Update(updatedClient);
         }
 
         public void DeleteClient(int id)

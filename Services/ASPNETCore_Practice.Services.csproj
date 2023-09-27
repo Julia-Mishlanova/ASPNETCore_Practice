@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ASPNETCore_Practice.Repositories\ASPNETCore_Practice.DataAccess.csproj" />
     <ProjectReference Include="..\Models\ASPNETCore_Practice.Models.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeFlightStatusService : IFlightStatusService
     {
+        private IFlightStatusRepository _flightStatusRepository { get; set; }
         private List<FlightStatusDTO> flightStatuses;
         private int nextId = 1;
 
@@ -26,35 +28,30 @@ namespace ASPNETCore_Practice.Services
 
         public IEnumerable<FlightStatusDTO> GetAllFlightStatuses()
         {
-            return flightStatuses;
+            return _flightStatusRepository.GetAll();
         }
 
         public FlightStatusDTO GetFlightStatusById(int id)
         {
-            return flightStatuses.FirstOrDefault(fs => fs.Id == id);
+            return _flightStatusRepository.Find(id);
         }
 
         public void AddFlightStatus(FlightStatusDTO flightStatus)
         {
-            flightStatus.Id = nextId++;
-            flightStatuses.Add(flightStatus);
+            _flightStatusRepository.Add(flightStatus);
         }
 
         public void UpdateFlightStatus(FlightStatusDTO updatedFlightStatus)
         {
-            var existingFlightStatus = flightStatuses.FirstOrDefault(fs => fs.Id == updatedFlightStatus.Id);
-            if (existingFlightStatus != null)
-            {
-                existingFlightStatus.Name = updatedFlightStatus.Name;
-            }
+            _flightStatusRepository.Update(updatedFlightStatus);
         }
 
         public void DeleteFlightStatus(int id)
         {
-            var flightStatusToDelete = flightStatuses.FirstOrDefault(fs => fs.Id == id);
+            var flightStatusToDelete = _flightStatusRepository.Find(id);
             if (flightStatusToDelete != null)
             {
-                flightStatuses.Remove(flightStatusToDelete);
+                _flightStatusRepository.Remove(flightStatusToDelete);
             }
         }
     }

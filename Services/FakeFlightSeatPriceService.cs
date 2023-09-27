@@ -1,4 +1,5 @@
-﻿using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeFlightSeatPriceService : IFlightSeatPriceService
     {
+        private IFlightSeatPriceRepository _flightSeatPriceRepository;
         private List<FlightSeatPriceDTO> flightSeatPrices;
         private int nextId = 1;
 
@@ -26,35 +28,30 @@ namespace ASPNETCore_Practice.Services
 
         public IEnumerable<FlightSeatPriceDTO> GetAllFlightSeatPrices()
         {
-            return flightSeatPrices;
+            return _flightSeatPriceRepository.GetAll();
         }
 
         public FlightSeatPriceDTO GetFlightSeatPriceById(int id)
         {
-            return flightSeatPrices.FirstOrDefault(f => f.Id == id);
+            return _flightSeatPriceRepository.Find(id);
         }
 
         public void AddFlightSeatPrice(FlightSeatPriceDTO flightSeatPrice)
         {
-            flightSeatPrice.Id = nextId++;
-            flightSeatPrices.Add(flightSeatPrice);
+            _flightSeatPriceRepository.Add(flightSeatPrice);
         }
 
         public void UpdateFlightSeatPrice(FlightSeatPriceDTO updatedFlightSeatPrice)
         {
-            var existingFlightSeatPrice = flightSeatPrices.FirstOrDefault(f => f.Id == updatedFlightSeatPrice.Id);
-            if (existingFlightSeatPrice != null)
-            {
-                existingFlightSeatPrice.FlightId = updatedFlightSeatPrice.FlightId;
-            }
+            _flightSeatPriceRepository.Update(updatedFlightSeatPrice);
         }
 
         public void DeleteFlightSeatPrice(int id)
         {
-            var flightSeatPriceToDelete = flightSeatPrices.FirstOrDefault(f => f.Id == id);
+            var flightSeatPriceToDelete = _flightSeatPriceRepository.Find(id);
             if (flightSeatPriceToDelete != null)
             {
-                flightSeatPrices.Remove(flightSeatPriceToDelete);
+                _flightSeatPriceRepository.Remove(flightSeatPriceToDelete);
             }
         }
     }

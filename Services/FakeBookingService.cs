@@ -1,4 +1,5 @@
-﻿using ASPNETCore_Practice.Models.DTO;
+﻿using ASPNETCore_Practice.DataAccess.Repository.IRepository;
+using ASPNETCore_Practice.Models.DTO;
 using ASPNETCore_Practice.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeBookingService : IBookingService
     {
+        private IBookingRepository _bookingRepository;
         private List<BookingDTO> bookings;
         private int nextId = 1;
 
@@ -25,36 +27,30 @@ namespace ASPNETCore_Practice.Services
 
         public IEnumerable<BookingDTO> GetAllBookings()
         {
-            return bookings;
+            return _bookingRepository.GetAll();
         }
 
         public BookingDTO GetBookingById(int id)
         {
-            return bookings.FirstOrDefault(b => b.Id == id);
+            return _bookingRepository.Find(id);
         }
 
         public void AddBooking(BookingDTO booking)
         {
-            booking.Id = nextId++;
-            bookings.Add(booking);
+            _bookingRepository.Add(booking);
         }
 
         public void UpdateBooking(BookingDTO updatedBooking)
         {
-            var existingBooking = bookings.FirstOrDefault(b => b.Id == updatedBooking.Id);
-            if (existingBooking != null)
-            {
-                existingBooking.ClientId = updatedBooking.ClientId;
-                existingBooking.FlightSeatPriceId = updatedBooking.FlightSeatPriceId;
-            }
+            _bookingRepository.Update(updatedBooking);
         }
 
         public void DeleteBooking(int id)
         {
-            var bookingToDelete = bookings.FirstOrDefault(b => b.Id == id);
+            var bookingToDelete = _bookingRepository.Find(id);
             if (bookingToDelete != null)
             {
-                bookings.Remove(bookingToDelete);
+                _bookingRepository.Remove(bookingToDelete);
             }
         }
     }

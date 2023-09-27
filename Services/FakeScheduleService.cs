@@ -11,6 +11,7 @@ namespace ASPNETCore_Practice.Services
 {
     public class FakeScheduleService : IScheduleService
     {
+        IScheduleRepository
         private List<ScheduleDTO> _schedules;
         private int nextId = 1;
 
